@@ -11,4 +11,4 @@
      state: latest # state can be modified as absent or present
 
 
-# to execute: ansible-playbook -i ../inventory playbook2.yaml
+# to execute: ansible-playbook -i ../inventory playbook1.yaml
