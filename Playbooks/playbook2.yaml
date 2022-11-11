@@ -13,7 +13,8 @@
   - name: Add the user 'johnd'
     ansible.builtin.user:
       name: johnd
-
+    ignore_errors: true # it ignores errors and continues to run playbook.
+    
   - name: Ensure group "sales" exists
     ansible.builtin.group:
       name: sales

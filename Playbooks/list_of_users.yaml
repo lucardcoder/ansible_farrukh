@@ -1,5 +1,5 @@
 ---
-- name: Playbook class2
+- name: Playbook to add list of users
   hosts: amazon 
   become: true
   become_method: sudo

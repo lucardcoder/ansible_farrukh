@@ -1,5 +1,5 @@
 ---
-- name: Playbook class2
+- name: Playbook to add multiple packages
   hosts: amazon 
   become: true
   become_method: sudo

@@ -1,0 +1,15 @@
+---
+- name: Playbook to update packages
+  hosts: all
+  become: true
+  become_method: sudo
+  connection: ssh
+  tasks:
+  - name: update
+    ansible.builtin.package: 
+     name: kernel
+     state: latest 
+    ignore_errors: true # it ignores errors and continues to run playbook.
+
+
+# to execute: ansible-playbook -i ../inventory update.yaml

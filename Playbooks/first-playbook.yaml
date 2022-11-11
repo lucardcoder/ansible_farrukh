@@ -9,18 +9,22 @@
     yum:
       name: httpd
       state: latest #latest or absent
+
   - name: install the latest version of Telnet
     yum:
       name: telnet
       state: latest    
+
   - name: install the latest version of elinks
     yum:
       name: elinks
       state: latest
+
   - name: install the latest version of lftp
     yum:
       name: lftp
       state: latest
+      
   - name: install the latest version of php
     yum:
       name: php
