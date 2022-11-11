@@ -1,0 +1,18 @@
+---
+- name: copy files
+  hosts: all
+  become: true
+  become_method: sudo
+  connection: ssh
+  tasks:
+  # - name: Copy a folder
+  #   ansible.builtin.copy:
+  #     src: apache
+  #     dest: /tmp/
+
+
+  - name: Synchronization of src on the control machine to dest on the remote hosts # synchronize is used to copy multiple files much more faster.
+    ansible.builtin.synchronize:
+      src: apache
+      dest: /tmp/
+
