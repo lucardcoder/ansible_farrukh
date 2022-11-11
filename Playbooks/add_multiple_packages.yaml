@@ -1,0 +1,18 @@
+---
+- name: Playbook class2
+  hosts: amazon 
+  become: true
+  become_method: sudo
+  connection: ssh
+  tasks:
+  - name: Add multiple packages
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+    - telnet
+    - httpd
+    - php
+    - lftp
+
+    # to execute: ansible-playbook -i ../inventory add_multiple_packages.yaml
