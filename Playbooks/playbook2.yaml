@@ -1,6 +1,6 @@
 ---
 - name: Playbook class2
-  hosts: localhost
+  hosts: all
   become: true
   become_method: sudo
   connection: ssh
@@ -11,4 +11,4 @@
      state: latest # state can be modified as absent or present
 
 
-# to execute: ansible-playbook playbook1.yaml
+# to execute: ansible-playbook -i ../inventory playbook1.yaml
