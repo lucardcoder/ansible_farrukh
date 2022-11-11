@@ -1,0 +1,14 @@
+---
+- name: Clean up
+  hosts: amazon 
+  become: true
+  become_method: sudo
+  connection: ssh
+  tasks:
+  - name: Zip files over 90 days
+    raw: 'find /var/log/ -type f -name "*.log" -mtime +90 -exec gzip -v9 {} +'
+  - name: Zip files over 90 days
+    raw: 'find /var/log/ -type f -name "*.log" -size +100M -exec gzip -v9 {} +'
+
+
+# to execute: ansible-playbook -i ../inventory zip.yaml
