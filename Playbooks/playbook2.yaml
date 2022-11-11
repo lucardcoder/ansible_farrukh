@@ -1,0 +1,14 @@
+---
+- name: Playbook class2
+  hosts: localhost
+  become: true
+  become_method: sudo
+  connection: ssh
+  tasks:
+  - name: install telnet
+    ansible.builtin.package: # package means it will run appropriate command depending on the Operating system ex: yum or apt
+     name: telnet
+     state: latest
+
+
+# to execute: ansible-playbook playbook1.yaml
