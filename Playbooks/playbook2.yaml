@@ -8,7 +8,7 @@
   - name: install telnet
     ansible.builtin.package: # package means it will run appropriate command depending on the Operating system ex: yum or apt
      name: telnet
-     state: latest
+     state: latest # state can be modified as absent or latest
 
 
 # to execute: ansible-playbook playbook1.yaml
