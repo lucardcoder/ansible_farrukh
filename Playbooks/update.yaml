@@ -9,7 +9,13 @@
     ansible.builtin.package: 
      name: kernel
      state: latest 
-    ignore_errors: true # it ignores errors and continues to run playbook.
+    ignore_errors: true 
+
+  - name: update
+    ansible.builtin.package: 
+     name: "*" # updates entire linux system
+     state: latest 
+    ignore_errors: true 
 
 
 # to execute: ansible-playbook -i ../inventory update.yaml
