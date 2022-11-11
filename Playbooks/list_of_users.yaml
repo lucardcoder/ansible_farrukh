@@ -1,0 +1,19 @@
+---
+- name: Playbook class2
+  hosts: amazon 
+  become: true
+  become_method: sudo
+  connection: ssh
+  tasks:
+  - name: Add multiple users
+    ansible.builtin.user:
+      name: "{{ item }}"
+      state: present
+    with_items:
+    - bob
+    - alp
+    - lisa
+    - mike
+
+
+# to execute: ansible-playbook -i ../inventory list_of_users.yaml

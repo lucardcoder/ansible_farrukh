@@ -1,0 +1,9 @@
+---
+- name: Playbook class2
+  hosts: amazon 
+  become: true
+  become_method: sudo
+  connection: ssh
+  tasks:
+  - name: install telnet
+    shell: "sudo yum install telnet -y" # shell command can be used to execute commands.it is not recommended due to different Operating systems.

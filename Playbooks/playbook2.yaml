@@ -1,6 +1,6 @@
 ---
 - name: Playbook class2
-  hosts: web #hosts can be specified depending on the inventory file IP and groups or even DNS names.
+  hosts: amazon #hosts can be specified depending on the inventory file IP and groups or even DNS names.
   become: true
   become_method: sudo
   connection: ssh
@@ -9,6 +9,15 @@
     ansible.builtin.package: # package means it will run appropriate command depending on the Operating system ex: yum or apt
      name: telnet
      state: latest # state can be modified as absent or present
+
+  - name: Add the user 'johnd'
+    ansible.builtin.user:
+      name: johnd
+
+  - name: Ensure group "sales" exists
+    ansible.builtin.group:
+      name: sales
+      state: present
 
 
 # to execute: ansible-playbook -i ../inventory playbook2.yaml
