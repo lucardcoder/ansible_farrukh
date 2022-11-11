@@ -1,0 +1,13 @@
+--- #Connection block
+- name: First Playbook
+  hosts: localhost
+  become: yes
+  become_method: sudo
+  connection: ssh
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: latest
+
+# to execute : ansible-playbook playbook.yaml
