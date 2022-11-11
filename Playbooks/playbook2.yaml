@@ -1,6 +1,6 @@
 ---
 - name: Playbook class2
-  hosts: web #hosts can be specified depending on the inventory file IP and groups.
+  hosts: web #hosts can be specified depending on the inventory file IP and groups or even DNS names.
   become: true
   become_method: sudo
   connection: ssh
