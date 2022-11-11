@@ -12,3 +12,5 @@
 
 
 # to execute: ansible-playbook -i ../inventory playbook2.yaml
+
+# to check for any errors run : ansible-lint playbook2.yaml
