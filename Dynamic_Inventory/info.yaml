@@ -6,7 +6,7 @@
   tasks:
   - name: Display nodename
     ansible.builtin.debug:
-      var: ansible_facts['nodename'] # to get specific facts about the localhost.
+      var: ansible_facts['nodename'] # specify inside [] to get speficic facts about the localhost. If don`t specify it will bring all facts.
  
   - name: Display kernel info
     ansible.builtin.debug:
