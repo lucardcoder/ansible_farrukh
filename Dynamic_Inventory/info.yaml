@@ -1,0 +1,17 @@
+- name: First Playbook
+  hosts: localhost
+  become: yes
+  become_method: sudo
+  connection: ssh
+  tasks:
+  - name: Display nodename
+    ansible.builtin.debug:
+      var: ansible_facts['nodename'] # to get specific facts about the localhost.
+ 
+  - name: Display kernel info
+    ansible.builtin.debug:
+      var: ansible_facts['kernel'] 
+
+  - name: Display os_family
+    ansible.builtin.debug:
+      var: ansible_facts['os_family'] 
