@@ -1,0 +1,9 @@
+---
+- hosts: tag_Name_ansible_ubuntu
+  tasks:
+  - name: "Update hostname"
+    hostname:
+      name: "{{ inventory_hostname }}"
+
+
+# run playbook :  ansible-playbook -i aws_ec2.yaml hostname.yaml -u ec2-user -b
