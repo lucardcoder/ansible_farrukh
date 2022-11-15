@@ -1,5 +1,5 @@
 - name: First Playbook
-  hosts: localhost
+  hosts: aws_ec2
   become: yes
   become_method: sudo
   connection: ssh
@@ -14,4 +14,16 @@
 
   - name: Display os_family
     ansible.builtin.debug:
-      var: ansible_facts['os_family'] 
+      var: ansible_facts['os_family']
+
+  - name: Display Distribution
+    ansible.builtin.debug:
+      var: ansible_facts['distribution']
+
+  - name: Display Distribution major version
+    ansible.builtin.debug:
+      var: ansible_facts['distribution_major_version']
+
+  - name: Display Ipv4 addresses
+    ansible.builtin.debug:
+      var: ansible_facts['all_ipv4_addresses']

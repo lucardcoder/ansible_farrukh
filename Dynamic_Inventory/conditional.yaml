@@ -1,0 +1,11 @@
+- name: First Playbook
+  hosts: aws_ec2
+  become: yes
+  become_method: sudo
+  connection: ssh
+  tasks:
+  - name: install the latest version of Telnet
+    when: ansible_facts['distribution'] == "Amazon"  # install or remove telnet packages when distribution of ec2 instances are Amazon only.
+    yum:
+      name: telnet
+      state: absent
