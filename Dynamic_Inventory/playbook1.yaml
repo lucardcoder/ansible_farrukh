@@ -1,0 +1,10 @@
+- name: First Playbook
+  hosts: aws_ec2
+  become: yes
+  become_method: sudo
+  connection: ssh
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: telnet
+      state: present #latest or absent
