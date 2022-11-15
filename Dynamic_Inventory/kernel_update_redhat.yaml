@@ -1,4 +1,4 @@
-- name: First Playbook
+- name: First Playbook  # https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html
   hosts: aws_ec2
   become: yes
   become_method: sudo
