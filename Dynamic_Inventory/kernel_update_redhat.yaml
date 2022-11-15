@@ -1,0 +1,11 @@
+- name: First Playbook
+  hosts: aws_ec2
+  become: yes
+  become_method: sudo
+  connection: ssh
+  tasks:
+  - name: Upgrade kernel on Redhat os family
+    when: ansible_facts['os_family'] == "Redhat" 
+    yum:
+      name: kernel
+      state: latest

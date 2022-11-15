@@ -9,3 +9,9 @@
     yum:
       name: telnet
       state: absent
+
+  - name: install the present version of Apache
+    when: ansible_facts['distribution'] == "Ubuntu" 
+    package:
+      name: httpd
+      state: present
