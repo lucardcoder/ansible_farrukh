@@ -1,5 +1,5 @@
 - name: First Playbook
-  hosts: aws_ec2
+  hosts: aws_ec2      #to install to specific hosts =====>   #tag_Name_ansible_ubuntu     #tag_Name_ansible_amazon
   become: yes
   become_method: sudo
   connection: ssh
