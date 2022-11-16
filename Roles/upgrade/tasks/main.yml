@@ -1,0 +1,6 @@
+---
+# tasks file for upgrade
+- name: Upgrade systems
+  ansible.builtin.package:
+    name: "*"
+    state: latest

@@ -7,7 +7,7 @@
   roles:
   - wordpress
   - users
- 
+  - upgrade 
  
 #ansible-playbook playbook.yaml
 
