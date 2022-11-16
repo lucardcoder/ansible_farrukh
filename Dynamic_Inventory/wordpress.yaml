@@ -19,6 +19,8 @@
     - wget
     - unzip
     - mysql
+    notify: #notifies the handler to run the task, only if the task has not already run.
+      - Start Web Server
 
   - name: Download Wordpress
     when: ansible_facts['os_family'] == "Redhat" or ansible_facts['distribution_major_version'] == "2" 
@@ -39,11 +41,12 @@
     shell: "cp -r /var/www/html/wordpress/* /var/www/html/"
     ignore_errors: true
 
-  - name: Start service Apache
+  handlers: # handlers makes run this task only run if webserver is not running in the system.
+  - name: Start Web Server
     when: ansible_facts['os_family'] == "Redhat" or ansible_facts['distribution_major_version'] == "2"
     systemd:
       name: httpd
-      state: started
+      state: restarted
       enabled: true
 
   
