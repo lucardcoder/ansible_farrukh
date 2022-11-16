@@ -1,0 +1,11 @@
+---
+# tasks file for users
+- name: Add users
+  ansible.builtin.user:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  - bob
+  - lisa
+  - alp
+  - ben

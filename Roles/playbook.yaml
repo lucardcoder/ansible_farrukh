@@ -6,6 +6,7 @@
   connection: ssh
   roles:
   - wordpress
+  - users
  
  
 #ansible-playbook playbook.yaml
