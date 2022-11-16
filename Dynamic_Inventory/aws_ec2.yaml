@@ -8,4 +8,4 @@ keyed_groups:
   - key: tags.Name
     prefix: tag_Name
 
-# to check inventory run : ansible-inventory azure_vm.yaml --list
+# to check inventory run : ansible-inventory aws_ec2.yaml --list

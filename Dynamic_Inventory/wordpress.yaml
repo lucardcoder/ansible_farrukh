@@ -1,0 +1,50 @@
+- name: Install Wordpress on EC2
+  hosts: aws_ec2
+  become: yes
+  become_method: sudo
+  connection: ssh
+  vars:
+    wordpress_version: "4.0.32"
+    php_version: "5.4.16"
+  tasks:
+  - name: Upgrade
+    when: ansible_facts['os_family'] == "Redhat" or ansible_facts['distribution_major_version'] == "2" 
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+    - php-mysql-{{php_version}}
+    - php-{{php_version}}
+    - httpd
+    - wget
+    - unzip
+    - mysql
+
+  - name: Download Wordpress
+    when: ansible_facts['os_family'] == "Redhat" or ansible_facts['distribution_major_version'] == "2" 
+    get_url:
+      url: http://wordpress.org/wordpress-4.0.32.tar.gz
+      dest: /tmp/wordpress-4.0.32.tar.gz
+      mode: '0440'
+      
+  - name: Unarchive a file that needs to be downloaded (added in 2.0)
+    when: ansible_facts['os_family'] == "Redhat" or ansible_facts['distribution_major_version'] == "2" 
+    ansible.builtin.unarchive:
+      src: /tmp/wordpress-4.0.32.tar.gz
+      dest: /var/www/html
+      remote_src: yes
+  
+  - name: Copy WordPress Files
+    when: ansible_facts['os_family'] == "Redhat" or ansible_facts['distribution_major_version'] == "2" 
+    shell: "cp -r /var/www/html/wordpress/* /var/www/html/"
+    ignore_errors: true
+
+  - name: Start service Apache
+    when: ansible_facts['os_family'] == "Redhat" or ansible_facts['distribution_major_version'] == "2"
+    systemd:
+      name: httpd
+      state: started
+      enabled: true
+
+  
+ 
