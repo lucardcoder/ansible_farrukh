@@ -41,7 +41,7 @@
     shell: "cp -r /var/www/html/wordpress/* /var/www/html/"
     ignore_errors: true
 
-  handlers: # handlers makes run this task only run if webserver is not running in the system.
+  handlers: # handlers makes run this task only run if webserver is not running in the system. This specific handler will restart httpd only in newly added ec2 instance.
   - name: Start Web Server
     when: ansible_facts['os_family'] == "Redhat" or ansible_facts['distribution_major_version'] == "2"
     systemd:
