@@ -21,6 +21,7 @@
     - mysql
     notify: #notifies the handler to run the task, only if the task has not already run.
       - Start Web Server
+      - Start DB Server
 
   - name: Download Wordpress
     when: ansible_facts['os_family'] == "Redhat" or ansible_facts['distribution_major_version'] == "2" 
@@ -48,6 +49,18 @@
       name: httpd
       state: restarted
       enabled: true
+
+  - name: Start DB Server
+    when: ansible_facts['os_family'] == "Redhat" or ansible_facts['distribution_major_version'] == "2"
+    systemd:
+      name: mysqld
+      state: restarted
+      enabled: true
+
+        
+  # - name: Send email
+  #   email:
+  #   address: gokalpkocer@gmail.com
 
   
  
