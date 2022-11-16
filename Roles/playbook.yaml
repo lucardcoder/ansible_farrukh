@@ -1,0 +1,16 @@
+---
+- name: Install Wordpress on EC2
+  hosts: aws_ec2
+  become: yes
+  become_method: sudo
+  connection: ssh
+  roles:
+  - wordpress
+ 
+ 
+#ansible-playbook playbook.yaml
+
+        
+
+  
+ 

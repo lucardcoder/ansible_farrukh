@@ -1,0 +1,15 @@
+---
+# handlers file for wordpress
+- name: Start Web Server
+  when: ansible_facts['os_family'] == "Redhat" or ansible_facts['distribution_major_version'] == "2"
+  systemd:
+    name: httpd
+    state: restarted
+    enabled: true
+
+- name: Start DB Server
+  when: ansible_facts['os_family'] == "Redhat" or ansible_facts['distribution_major_version'] == "2"
+  systemd:
+    name: mysqld
+    state: restarted
+    enabled: true
