@@ -1,12 +1,12 @@
 ---
 - name: Playbook to add list of users
-  hosts: aws_ec2 
+  hosts: all 
   become: true
   become_method: sudo
   connection: ssh
   tasks:
   - name: Add multiple users
-    ansible.builtin.user:
+    user:
       name: "{{ item }}"
       state: present
     with_items:
