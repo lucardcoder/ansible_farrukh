@@ -1,0 +1,13 @@
+--- # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/package_module.html
+- name: Add Package
+  hosts: all
+  tasks: 
+  - name: Install telnet 
+    package:
+      name: "{{ item }}"
+      state: present
+    loop:
+    - telnet
+    - apache2 
+    - lftp
+    ignore_errors: true
